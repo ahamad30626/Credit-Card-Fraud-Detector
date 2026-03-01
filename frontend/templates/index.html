@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Fraud Detection</title>
+    <!-- Dark Fintech Style Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Credit Card Fraud Detection</h1>
+            <p>Advanced Deep Learning Security Module</p>
+        </header>
+
+        <main class="content-wrapper">
+            <div class="input-section glass-panel">
+                <h2>Transaction Features</h2>
+                <p class="subtitle">Enter 30 numerical features (Time, V1-V28, Amount) separated by commas.</p>
+                <form id="prediction-form">
+                    <textarea id="features-input" rows="8" placeholder="-4.3312, 1.258, -0.992, ... (30 values total)"
+                        required></textarea>
+
+                    <button type="submit" id="check-fraud-btn" class="primary-btn">
+                        <span class="btn-text">Check Fraud</span>
+                        <div class="spinner hidden" id="loading-spinner"></div>
+                    </button>
+                    <!-- Button for demo filling -->
+                    <button type="button" id="fill-demo-btn" class="secondary-btn">Fill Demo Normal</button>
+                    <button type="button" id="fill-demo-fraud" class="danger-btn">Fill Demo Fraud</button>
+                </form>
+            </div>
+
+            <div class="result-section glass-panel">
+                <h2>Analysis Result</h2>
+                <div id="result-placeholder" class="placeholder-text">
+                    Await feature input for analysis.
+                </div>
+
+                <div id="result-content" class="hidden">
+                    <div class="status-badge" id="prediction-badge">
+                        Normal
+                    </div>
+
+                    <div class="probability-container">
+                        <div class="prob-header">
+                            <span>Fraud Probability</span>
+                            <span id="prob-percentage">0.00%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="prob-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="details-box" id="details-box">
+                        <p>Our deep learning module has analyzed the provided transaction metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by PyTorch WGAN-GP and Neural Network Classifier</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>

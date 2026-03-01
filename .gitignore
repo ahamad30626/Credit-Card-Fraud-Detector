@@ -1,0 +1,8 @@
+dataset/creditcard.csv
+__pycache__/
+*.pyc
+.env
+venv/
+env/
+.idea/
+.vscode/
